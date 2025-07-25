@@ -51,6 +51,56 @@ document.addEventListener('DOMContentLoaded', function() {
     // Listen for scroll events
     window.addEventListener('scroll', highlightNavigation);
     
+    // Make membership tiles clickable
+    const membershipPlans = document.querySelectorAll('.membership-plan');
+    
+    membershipPlans.forEach(plan => {
+        plan.addEventListener('click', function(e) {
+            // Prevent multiple clicks if clicking the button itself
+            if (e.target.classList.contains('btn')) {
+                return;
+            }
+            
+            // Find the sign-up button within this plan and click it
+            const signUpBtn = this.querySelector('.btn');
+            if (signUpBtn) {
+                signUpBtn.click();
+            }
+        });
+    });
+    
+    // FAQ Accordion functionality
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+            const faqItem = this.closest('.faq-item');
+            const faqAnswer = faqItem.querySelector('.faq-answer');
+            const faqContent = faqItem.querySelector('.faq-answer-content');
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items smoothly
+            document.querySelectorAll('.faq-item').forEach(item => {
+                const answer = item.querySelector('.faq-answer');
+                const question = item.querySelector('.faq-question');
+                
+                item.classList.remove('active');
+                question.setAttribute('aria-expanded', 'false');
+                answer.style.height = '0px';
+            });
+            
+            // Toggle the clicked item
+            if (!isActive) {
+                faqItem.classList.add('active');
+                this.setAttribute('aria-expanded', 'true');
+                
+                // Calculate and set the actual height
+                const contentHeight = faqContent.scrollHeight;
+                faqAnswer.style.height = contentHeight + 'px';
+            }
+        });
+    });
+    
     // Optional: Add mobile menu functionality if needed
     // This is a placeholder for future mobile menu implementation
     

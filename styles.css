@@ -210,11 +210,15 @@
 }
 
 .hero-title-box {
-    position: relative;
+    position: absolute;
     z-index: 2;
     background-color: rgba(255, 255, 255, 0.8);
-    width: 100%;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
     text-align: center;
+    padding: 20px 0;
 }
 
 .hero-cta-wrapper {
@@ -245,9 +249,6 @@
         font-size: 32px;
     }
     
-    .hero-title-box {
-        padding: 20px 25px;
-    }
     
     .hero-content {
         gap: 20px;
@@ -545,9 +546,9 @@ p, ul, ol {
 .feature-block {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-    margin-bottom: 80px;
+    margin-bottom: 30px;
+    gap: 30px;
+    align-items: start;
 }
 
 .feature-block:last-child {
@@ -565,7 +566,7 @@ p, ul, ol {
 .feature-text {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 }
 
 .feature-image {
@@ -597,10 +598,6 @@ p, ul, ol {
     
     .feature-image {
         order: -1;
-    }
-    
-    .feature-block {
-        margin-bottom: 60px;
     }
 }
 
@@ -656,42 +653,156 @@ p, ul, ol {
 
 .timetable-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin: 40px 0;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin: 50px 0;
 }
 
 .day-schedule {
+    background: #ffffff;
+    padding: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid #e9ecef;
+    position: relative;
+}
+
+.day-schedule:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    border-color: rgb(233, 70, 41);
+}
+
+.day-schedule.weekend {
+    background: linear-gradient(135deg, #fff5f3 0%, #ffffff 100%);
+}
+
+.day-header {
     background: #f8f9fa;
-    padding: 30px;
-    border-radius: 8px;
-    text-align: center;
+    padding: 20px 25px;
+    border-bottom: 2px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.day-schedule:hover .day-header {
+    background: #f3f4f6;
 }
 
 .day-title {
-    margin-bottom: 20px;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    font-family: 'Overpass', sans-serif;
+}
+
+.class-details {
+    padding: 25px;
 }
 
 .class-time {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.time-icon {
+    color: rgb(233, 70, 41);
+    flex-shrink: 0;
 }
 
 .time {
     font-weight: 600;
-    color: #000;
+    color: #2d3748;
+    font-size: 16px;
+    letter-spacing: -0.02em;
 }
 
-.class-type {
-    color: #666;
+.class-badge {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.class-badge.gi {
+    background: #e3f2fd;
+    color: #1565c0;
+}
+
+.class-badge.no-gi {
+    background: #f3e5f5;
+    color: #7b1fa2;
+}
+
+.class-duration {
+    font-size: 14px;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+.section-intro {
+    text-align: center;
+    font-size: 18px;
+    color: #6c757d;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.timetable-legend {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 40px 0;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.legend-badge {
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.legend-badge.gi {
+    background: #e3f2fd;
+    color: #1565c0;
+}
+
+.legend-badge.no-gi {
+    background: #f3e5f5;
+    color: #7b1fa2;
+}
+
+.legend-text {
+    color: #6c757d;
+    font-size: 14px;
 }
 
 .schedule-note {
-    font-style: italic;
     text-align: center;
-    margin-top: 40px;
-    color: #666;
+    color: #6c757d;
+    font-style: italic;
+    margin-top: 20px;
+    font-size: 14px;
 }
 
 /* ==========================================================================
@@ -700,56 +811,164 @@ p, ul, ol {
 
 .membership-plans {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     margin: 40px 0;
 }
 
 .membership-plan {
-    background: #f8f9fa;
+    background: #ffffff;
     padding: 40px 30px;
-    border-radius: 8px;
+    border-radius: 12px;
     text-align: center;
+    border: 2px solid #e9ecef;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.membership-plan:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: transparent;
 }
 
 .membership-plan.featured {
-    background: #000;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     color: #fff;
+    border: 2px solid rgb(233, 70, 41);
     transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(233, 70, 41, 0.2);
+}
+
+.membership-plan.featured:hover {
+    transform: scale(1.08) translateY(-8px);
+    box-shadow: 0 25px 50px rgba(233, 70, 41, 0.3);
+}
+
+.membership-plan.featured::before {
+    content: "MOST POPULAR";
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgb(233, 70, 41);
+    color: white;
+    padding: 4px 20px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 .plan-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
     margin-bottom: 20px;
+    color: #1a1a1a;
+}
+
+.membership-plan.featured .plan-title {
+    color: #ffffff;
 }
 
 .plan-price {
-    font-family: Inter, sans-serif;
-    font-size: 32px;
+    font-family: 'Overpass', sans-serif;
+    font-size: 48px;
     font-weight: 800;
     margin-bottom: 30px;
+    color: rgb(233, 70, 41);
+    line-height: 1;
+}
+
+.plan-price span {
+    font-size: 18px;
+    font-weight: 400;
+    color: #6c757d;
+}
+
+.membership-plan.featured .plan-price {
+    color: #ffffff;
+}
+
+.membership-plan.featured .plan-price span {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.plan-price::before {
+    content: "";
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    color: #6c757d;
+    margin-bottom: 8px;
 }
 
 .plan-features {
     text-align: left;
     list-style: none;
-    padding: 0;
+    padding: 20px 0 0 0;
+    margin: 0;
+    border-top: 1px solid #e9ecef;
+}
+
+.membership-plan.featured .plan-features {
+    border-top-color: rgba(255, 255, 255, 0.2);
 }
 
 .plan-features li {
-    padding: 8px 0;
+    padding: 12px 0;
     position: relative;
-    padding-left: 20px;
+    padding-left: 28px;
+    color: #495057;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.membership-plan.featured .plan-features li {
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .plan-features li:before {
     content: "✓";
     position: absolute;
     left: 0;
-    color: #00c800;
+    color: rgb(233, 70, 41);
+    font-weight: 700;
+    font-size: 18px;
 }
 
 .membership-plan.featured .plan-features li:before {
-    color: #64ff64;
+    color: #ffffff;
+}
+
+.membership-plan .btn {
+    margin-top: 30px;
+    width: 100%;
+    padding: 14px 30px;
+    font-size: 16px;
+}
+
+.membership-plan .btn-secondary {
+    background: transparent;
+    color: rgb(233, 70, 41);
+    border: 2px solid rgb(233, 70, 41);
+}
+
+.membership-plan .btn-secondary:hover {
+    background: rgb(233, 70, 41);
+    color: white;
+}
+
+.membership-plan.featured .btn-primary {
+    background: rgb(233, 70, 41);
+    border: 2px solid rgb(233, 70, 41);
+}
+
+.membership-plan.featured .btn-primary:hover {
+    background: #d63820;
+    border-color: #d63820;
 }
 
 /* ==========================================================================
@@ -772,17 +991,67 @@ p, ul, ol {
 }
 
 .faq-item {
-    margin-bottom: 40px;
-    padding-bottom: 30px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 2px solid #e9ecef;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-.faq-item:last-child {
-    border-bottom: none;
+.faq-item:hover {
+    border-color: rgb(233, 70, 41);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .faq-question {
-    margin-bottom: 15px;
+    width: 100%;
+    padding: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+    background: #f8f9fa;
+}
+
+.faq-question span {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.faq-icon {
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    color: rgb(233, 70, 41);
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+
+.faq-answer-content {
+    padding: 0 24px 24px 24px;
+}
+
+.faq-answer .section-text {
+    margin: 0;
 }
 
 /* ==========================================================================
@@ -792,6 +1061,8 @@ p, ul, ol {
 .cta-section {
     background: #f8f9fa;
     text-align: center;
+    padding: 80px 20px;
+    width: 100%;
 }
 
 .cta-buttons {
