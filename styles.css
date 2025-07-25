@@ -127,6 +127,15 @@
     transition: all 0.3s ease;
 }
 
+/* Mobile/Desktop visibility classes */
+.mobile-only {
+    display: none !important;
+}
+
+.desktop-only {
+    display: flex;
+}
+
 /* Mobile Navigation */
 @media (max-width: 809px) {
     .nav-links {
@@ -152,11 +161,11 @@
     }
 
     .mobile-only {
-        display: block;
+        display: block !important;
     }
     
     .desktop-only {
-        display: none;
+        display: none !important;
     }
     
     .mobile-menu-toggle {
