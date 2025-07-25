@@ -101,8 +101,41 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Optional: Add mobile menu functionality if needed
-    // This is a placeholder for future mobile menu implementation
+    // Mobile menu functionality
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const navbar = document.querySelector('.navbar');
+    
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function() {
+            const isOpen = navbar.classList.contains('mobile-menu-open');
+            
+            if (isOpen) {
+                navbar.classList.remove('mobile-menu-open');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            } else {
+                navbar.classList.add('mobile-menu-open');
+                mobileMenuToggle.setAttribute('aria-expanded', 'true');
+            }
+        });
+        
+        // Close mobile menu when clicking on navigation links
+        const mobileNavLinks = document.querySelectorAll('.nav-links a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navbar.classList.remove('mobile-menu-open');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navbar.contains(e.target)) {
+                navbar.classList.remove('mobile-menu-open');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
     
     console.log('Carlson Gracie Clapham website loaded successfully');
 });
