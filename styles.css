@@ -1196,6 +1196,44 @@ p, ul, ol {
     padding: 16px 32px;
     font-size: 18px;
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-large.success {
+    background: #28a745;
+    border-color: #28a745;
+}
+
+.btn-large.success:hover {
+    background: #218838;
+    border-color: #218838;
+}
+
+.btn-checkmark {
+    display: none;
+}
+
+.btn-large.success .btn-checkmark {
+    display: inline-block;
+    animation: checkmark-pop 0.3s ease-out;
+}
+
+@keyframes checkmark-pop {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .form-status {

@@ -230,10 +230,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // Sign-up form submission to Google Forms
     const signupForm = document.getElementById('signupForm');
     const formStatus = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText = submitBtn ? submitBtn.querySelector('.btn-text') : null;
+    const btnCheckmark = submitBtn ? submitBtn.querySelector('.btn-checkmark') : null;
     
     if (signupForm) {
         signupForm.addEventListener('submit', async function(e) {
             e.preventDefault();
+            
+            // Disable button and show loading state
+            submitBtn.disabled = true;
+            btnText.textContent = 'Submitting...';
             
             // Get form data
             const formData = new FormData(this);
@@ -261,9 +268,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     body: urlEncodedData
                 });
                 
-                // Show success message (we assume success since no-cors doesn't give us response)
+                // Show success state on button
+                submitBtn.classList.add('success');
+                btnText.textContent = 'Success!';
+                btnCheckmark.style.display = 'inline-block';
+                
+                // Show success message
                 formStatus.className = 'form-status success';
-                formStatus.textContent = 'Thank you for your application! We\'ll be in touch soon.';
+                formStatus.textContent = 'Thank you! We\'ll be in touch soon.';
                 formStatus.style.display = 'block';
                 
                 // Reset form
@@ -271,6 +283,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Scroll to success message
                 formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                    submitBtn.classList.remove('success');
+                    submitBtn.disabled = false;
+                    btnText.textContent = 'Sign Up';
+                    btnCheckmark.style.display = 'none';
+                }, 3000);
                 
                 // Hide success message after 5 seconds
                 setTimeout(() => {
@@ -282,6 +302,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 formStatus.className = 'form-status error';
                 formStatus.textContent = 'There was an error submitting your application. Please try again or contact us directly.';
                 formStatus.style.display = 'block';
+                
+                // Reset button to original state
+                submitBtn.disabled = false;
+                btnText.textContent = 'Sign Up';
                 
                 console.error('Form submission error:', error);
             }
