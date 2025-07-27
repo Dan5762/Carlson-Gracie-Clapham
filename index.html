@@ -348,7 +348,7 @@
                         </button>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
-                                <p class="section-text">Carlson Gracie Clapham offers flexible monthly memberships starting at £50 for one class per week, £70 for two classes per week, or £90 for unlimited classes. Your first trial class is completely free. Gis (uniforms) are purchased separately. We prefer monthly commitments but remain flexible with our members. All classes are included in your membership with no hidden fees or premium class charges. Start with your free trial and find the membership that fits your schedule at South London's friendliest jiu jitsu gym</p>
+                                <p class="section-text">Carlson Gracie Clapham offers monthly memberships starting at £50 for one class per week, £70 for two classes per week, or £90 for unlimited classes. Your first trial class is completely free. Gis (uniforms) are purchased separately. All memberships are monthly commitments. All classes are included in your membership with no hidden fees or premium class charges. Start with your free trial and find the membership that fits your schedule at South London's friendliest jiu jitsu gym.</p>
                             </div>
                         </div>
                     </div>
@@ -390,13 +390,34 @@
                 <h2 class="section-title">Start Your BJJ Journey Today</h2>
                 <p class="section-text">Ready to begin your Brazilian Jiu-Jitsu journey with Carlson Gracie Clapham? Join our welcoming community and discover the art of BJJ in South London.</p>
                 
-                <div class="cta-buttons">
-                    <a href="mailto:martinfootbjj@gmail.com?subject=BJJ%20Training%20Inquiry%20-%20Carlson%20Gracie%20Clapham" class="btn btn-primary">Send Us an Email</a>
-                    <a href="https://www.facebook.com/carlsongracieclapham" class="btn btn-secondary" target="_blank" rel="noopener">Contact Us on Facebook</a>
-                    <a href="https://www.instagram.com/carlsongracieclapham" class="btn btn-secondary" target="_blank" rel="noopener">Follow on Instagram</a>
-                </div>
-                
-                <p class="signup-note">Get in touch via email or social media to book your first class or ask any questions. We look forward to welcoming you to our BJJ family!</p>
+                <!-- Sign Up Form -->
+                <form class="signup-form" id="signupForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="entry.1234567890" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="entry.0987654321" required>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="entry.1122334455" required>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="message">Additional Message (Optional)</label>
+                            <textarea id="message" name="entry.4455667788" rows="4" placeholder="Any questions or comments?"></textarea>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-large">Submit Application</button>
+                    
+                    <div class="form-status" id="formStatus"></div>
+                </form>
             </div>
         </section>
     </main>

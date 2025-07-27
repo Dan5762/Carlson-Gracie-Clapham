@@ -3,8 +3,78 @@
  * Clean, readable JavaScript for the BJJ gym website
  */
 
+// Load content from content.json
+async function loadContent() {
+    try {
+        const response = await fetch('content.json');
+        const content = await response.json();
+        
+        // About section
+        const aboutBlocks = document.querySelectorAll('.feature-block');
+        content.about.blocks.forEach((block, index) => {
+            if (aboutBlocks[index]) {
+                const textElement = aboutBlocks[index].querySelector('.section-text');
+                if (textElement) {
+                    textElement.textContent = block.text;
+                }
+            }
+        });
+        
+        // FAQ section
+        const faqItems = document.querySelectorAll('.faq-item');
+        content.faq.questions.forEach((question, index) => {
+            if (faqItems[index]) {
+                const answerElement = faqItems[index].querySelector('.faq-answer-content .section-text');
+                if (answerElement) {
+                    answerElement.textContent = question.answer;
+                }
+            }
+        });
+        
+        // Location description
+        const locationText = document.querySelector('#location .section-text');
+        if (locationText) {
+            locationText.textContent = content.location.description;
+        }
+        
+        // Sign-up section
+        const signUpTitle = document.querySelector('#sign-up .section-title');
+        const signUpText = document.querySelector('#sign-up .section-text');
+        if (signUpTitle) {
+            signUpTitle.textContent = content.signUp.title;
+        }
+        if (signUpText) {
+            signUpText.textContent = content.signUp.description;
+        }
+        
+        // Footer
+        const footerBrand = document.querySelector('.footer-section h3');
+        const footerTagline = document.querySelector('.footer-section p:first-of-type');
+        const footerLocation = document.querySelector('.footer-section p:nth-of-type(2)');
+        const footerCopyright = document.querySelector('.footer-bottom p');
+        
+        if (footerBrand) {
+            footerBrand.textContent = content.footer.brand.name;
+        }
+        if (footerTagline) {
+            footerTagline.textContent = content.footer.brand.tagline;
+        }
+        if (footerLocation) {
+            footerLocation.textContent = content.footer.brand.location;
+        }
+        if (footerCopyright) {
+            footerCopyright.textContent = content.footer.copyright;
+        }
+        
+    } catch (error) {
+        console.error('Error loading content:', error);
+    }
+}
+
 // Smooth scrolling for navigation links (optional enhancement)
 document.addEventListener('DOMContentLoaded', function() {
+    // Load content from JSON
+    loadContent();
     // Get all navigation links
     const navLinks = document.querySelectorAll('nav a[href^="#"]');
     
@@ -109,6 +179,112 @@ document.addEventListener('DOMContentLoaded', function() {
         hamburger.addEventListener('click', function() {
             navMenu.classList.toggle('active');
             hamburger.classList.toggle('active');
+        });
+    }
+    
+    // Copy email to clipboard functionality
+    const copyEmailBtn = document.querySelector('.copy-email');
+    
+    if (copyEmailBtn) {
+        copyEmailBtn.addEventListener('click', async function() {
+            const email = this.getAttribute('data-email');
+            const copyText = this.querySelector('.copy-text');
+            const copiedText = this.querySelector('.copied-text');
+            
+            try {
+                await navigator.clipboard.writeText(email);
+                
+                // Show success message
+                copyText.style.display = 'none';
+                copiedText.style.display = 'inline';
+                
+                // Reset after 2 seconds
+                setTimeout(() => {
+                    copyText.style.display = 'inline';
+                    copiedText.style.display = 'none';
+                }, 2000);
+            } catch (err) {
+                // Fallback for older browsers
+                const tempInput = document.createElement('input');
+                tempInput.value = email;
+                tempInput.style.position = 'fixed';
+                tempInput.style.left = '-9999px';
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                
+                // Show success message
+                copyText.style.display = 'none';
+                copiedText.style.display = 'inline';
+                
+                // Reset after 2 seconds
+                setTimeout(() => {
+                    copyText.style.display = 'inline';
+                    copiedText.style.display = 'none';
+                }, 2000);
+            }
+        });
+    }
+    
+    // Sign-up form submission to Google Forms
+    const signupForm = document.getElementById('signupForm');
+    const formStatus = document.getElementById('formStatus');
+    
+    if (signupForm) {
+        signupForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // Replace with your actual Google Form ID
+            const GOOGLE_FORM_ID = '1FAIpQLSduwc1yQi9AV8ACeJzViKSi7YwPXvyi-TH_FTK_YYCYqCJmXQ';
+            const GOOGLE_FORM_URL = `https://docs.google.com/forms/d/e/${GOOGLE_FORM_ID}/formResponse`;
+            
+            // Create URL-encoded form data for Google Forms
+            const urlEncodedData = new URLSearchParams();
+            for (const pair of formData) {
+                urlEncodedData.append(pair[0], pair[1]);
+            }
+            
+            try {
+                // Submit to Google Forms
+                // Note: This will likely be blocked by CORS in production
+                // Consider using a proxy server or Google Apps Script for production
+                const response = await fetch(GOOGLE_FORM_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // This bypasses CORS but we won't get response details
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: urlEncodedData
+                });
+                
+                // Show success message (we assume success since no-cors doesn't give us response)
+                formStatus.className = 'form-status success';
+                formStatus.textContent = 'Thank you for your application! We\'ll be in touch soon.';
+                formStatus.style.display = 'block';
+                
+                // Reset form
+                signupForm.reset();
+                
+                // Scroll to success message
+                formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    formStatus.style.display = 'none';
+                }, 5000);
+                
+            } catch (error) {
+                // Show error message
+                formStatus.className = 'form-status error';
+                formStatus.textContent = 'There was an error submitting your application. Please try again or contact us directly.';
+                formStatus.style.display = 'block';
+                
+                console.error('Form submission error:', error);
+            }
         });
     }
     
