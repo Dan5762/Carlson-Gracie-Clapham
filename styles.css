@@ -203,6 +203,11 @@
         padding: 15px 15px;
     }
     
+    
+    .nav-brand {
+        flex: 1;
+    }
+    
     .mobile-menu-toggle.active span:nth-child(1) {
         transform: rotate(45deg) translate(6px, 6px);
     }
