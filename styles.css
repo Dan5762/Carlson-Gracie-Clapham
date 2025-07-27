@@ -94,6 +94,12 @@
     gap: 15px;
 }
 
+.mobile-nav-social {
+    display: none;
+    gap: 5px;
+    margin-right: 5px;
+}
+
 .social-icon {
     display: flex;
     align-items: center;
@@ -170,6 +176,31 @@
     
     .mobile-menu-toggle {
         display: flex;
+    }
+    
+    .mobile-nav-social {
+        display: flex;
+    }
+    
+    .mobile-nav-social .social-icon {
+        width: 28px;
+        height: 28px;
+        padding: 0;
+        background: none;
+    }
+    
+    .mobile-nav-social .social-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .nav-brand .brand-link {
+        font-size: 22px;
+    }
+    
+    .nav-inner {
+        gap: 10px;
+        padding: 15px 15px;
     }
     
     .mobile-menu-toggle.active span:nth-child(1) {
