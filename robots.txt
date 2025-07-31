@@ -1,4 +1,4 @@
-# robots.txt for carlsongracieclapham.com
+# robots.txt for bjjsouthlondon.com
 # Permissive configuration - allows all bots to crawl all content
 
 # Allow all web crawlers
@@ -7,7 +7,7 @@ Allow: /
 Crawl-delay: 0
 
 # Sitemap location
-Sitemap: https://carlsongracieclapham.com/sitemap.xml
+Sitemap: https://bjjsouthlondon.com/sitemap.xml
 
 # No restrictions - all content is public
 # This file explicitly permits all crawlers to access all areas of the site
