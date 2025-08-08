@@ -180,6 +180,15 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.classList.toggle('active');
             hamburger.classList.toggle('active');
         });
+        
+        // Close menu when clicking any nav link
+        const navLinksInMenu = navMenu.querySelectorAll('a');
+        navLinksInMenu.forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
     }
     
     // Copy email to clipboard functionality

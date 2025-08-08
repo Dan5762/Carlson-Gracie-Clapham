@@ -227,7 +227,7 @@
                         
                         <div class="form-group full-width">
                             <label for="signatureDate">Date *</label>
-                            <input type="date" id="signatureDate" name="signatureDate" required>
+                            <input type="date" id="signatureDate" name="signatureDate" readonly required>
                         </div>
                     </div>
                     
@@ -295,6 +295,15 @@
                 mobileMenuToggle.addEventListener('click', function() {
                     navLinks.classList.toggle('active');
                     mobileMenuToggle.classList.toggle('active');
+                });
+                
+                // Close menu when clicking any nav link
+                const navLinksInMenu = navLinks.querySelectorAll('a');
+                navLinksInMenu.forEach(link => {
+                    link.addEventListener('click', function() {
+                        navLinks.classList.remove('active');
+                        mobileMenuToggle.classList.remove('active');
+                    });
                 });
             }
 
