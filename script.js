@@ -171,25 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Simple mobile menu functionality
-    const hamburger = document.querySelector('.mobile-menu-toggle');
-    const navMenu = document.querySelector('.nav-links');
-    
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
-        
-        // Close menu when clicking any nav link
-        const navLinksInMenu = navMenu.querySelectorAll('a');
-        navLinksInMenu.forEach(link => {
-            link.addEventListener('click', function() {
-                navMenu.classList.remove('active');
-                hamburger.classList.remove('active');
-            });
-        });
-    }
+    // Mobile menu functionality is now in common.js
     
     // Copy email to clipboard functionality
     const copyEmailBtn = document.querySelector('.copy-email');
