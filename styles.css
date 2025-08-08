@@ -44,6 +44,11 @@
     color: rgb(0, 0, 0);
     text-decoration: none;
     letter-spacing: -1px;
+    transition: color 0.2s ease;
+}
+
+.nav-brand .brand-link:hover {
+    color: rgb(232, 30, 39);
 }
 
 .nav-links {
@@ -64,7 +69,7 @@
 }
 
 .nav-links a:hover {
-    color: rgb(233, 70, 41);
+    color: rgb(174, 48, 54);
     transform: scale(1.02);
 }
 
@@ -80,12 +85,12 @@
 }
 
 .btn-primary {
-    background-color: rgb(233, 70, 41);
+    background-color: rgb(174, 48, 54);
     color: white;
 }
 
 .btn-primary:hover {
-    background-color: rgb(213, 50, 21);
+    background-color: rgb(232, 30, 39);
     transform: scale(1.02);
 }
 
@@ -111,7 +116,7 @@
 }
 
 .social-icon:hover {
-    color: rgb(233, 70, 41);
+    color: rgb(174, 48, 54);
     transform: scale(1.02);
 }
 
@@ -221,7 +226,7 @@
     }
     
     .nav-links .btn-primary {
-        background-color: rgb(233, 70, 41);
+        background-color: rgb(174, 48, 54);
         color: white !important;
     }
 }
@@ -517,12 +522,12 @@ p, ul, ol {
 }
 
 .btn-primary {
-    background-color: rgb(233, 70, 41);
+    background-color: rgb(174, 48, 54);
     color: white;
 }
 
 .btn-primary:hover {
-    background-color: rgb(213, 50, 21);
+    background-color: rgb(232, 30, 39);
     transform: scale(1.02);
 }
 
@@ -753,7 +758,7 @@ p, ul, ol {
 .day-schedule:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-    border-color: rgb(233, 70, 41);
+    border-color: rgb(174, 48, 54);
 }
 
 .day-schedule.weekend {
@@ -793,7 +798,7 @@ p, ul, ol {
 }
 
 .time-icon {
-    color: rgb(233, 70, 41);
+    color: rgb(174, 48, 54);
     flex-shrink: 0;
 }
 
@@ -917,7 +922,7 @@ p, ul, ol {
 .membership-plan.featured {
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     color: #fff;
-    border: 2px solid rgb(233, 70, 41);
+    border: 2px solid rgb(174, 48, 54);
     transform: scale(1.05);
     box-shadow: 0 10px 30px rgba(233, 70, 41, 0.2);
 }
@@ -933,7 +938,7 @@ p, ul, ol {
     top: -12px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgb(233, 70, 41);
+    background: rgb(174, 48, 54);
     color: white;
     padding: 4px 20px;
     border-radius: 20px;
@@ -959,7 +964,7 @@ p, ul, ol {
     font-size: 48px;
     font-weight: 800;
     margin-bottom: 30px;
-    color: rgb(233, 70, 41);
+    color: rgb(174, 48, 54);
     line-height: 1;
 }
 
@@ -1015,7 +1020,7 @@ p, ul, ol {
     content: "✓";
     position: absolute;
     left: 0;
-    color: rgb(233, 70, 41);
+    color: rgb(174, 48, 54);
     font-weight: 700;
     font-size: 18px;
 }
@@ -1033,23 +1038,23 @@ p, ul, ol {
 
 .membership-plan .btn-secondary {
     background: transparent;
-    color: rgb(233, 70, 41);
-    border: 2px solid rgb(233, 70, 41);
+    color: rgb(174, 48, 54);
+    border: 2px solid rgb(174, 48, 54);
 }
 
 .membership-plan .btn-secondary:hover {
-    background: rgb(233, 70, 41);
+    background: rgb(174, 48, 54);
     color: white;
 }
 
 .membership-plan.featured .btn-primary {
-    background: rgb(233, 70, 41);
-    border: 2px solid rgb(233, 70, 41);
+    background: rgb(174, 48, 54);
+    border: 2px solid rgb(174, 48, 54);
 }
 
 .membership-plan.featured .btn-primary:hover {
-    background: #d63820;
-    border-color: #d63820;
+    background: #e81e27;
+    border-color: #e81e27;
 }
 
 /* ==========================================================================
@@ -1081,7 +1086,7 @@ p, ul, ol {
 }
 
 .faq-item:hover {
-    border-color: rgb(233, 70, 41);
+    border-color: rgb(174, 48, 54);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
@@ -1114,7 +1119,7 @@ p, ul, ol {
 .faq-icon {
     flex-shrink: 0;
     transition: transform 0.3s ease;
-    color: rgb(233, 70, 41);
+    color: rgb(174, 48, 54);
 }
 
 .faq-item.active .faq-icon {
@@ -1173,7 +1178,7 @@ p, ul, ol {
 
 .signup-form:hover {
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-    border-color: rgb(233, 70, 41);
+    border-color: rgb(174, 48, 54);
 }
 
 .form-grid {
@@ -1218,7 +1223,7 @@ p, ul, ol {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: rgb(233, 70, 41);
+    border-color: rgb(174, 48, 54);
     background: white;
     box-shadow: 0 0 0 3px rgba(233, 70, 41, 0.1);
 }
