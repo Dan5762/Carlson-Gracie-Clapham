@@ -1148,7 +1148,9 @@ p, ul, ol {
     background: #f8f9fa;
     text-align: center;
     padding: 80px 20px;
-    width: 100%;
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 
 .cta-buttons {
@@ -1512,10 +1514,13 @@ p, ul, ol {
 
 /* Waiver Form Section - Full Width Background */
 .waiver-form-section {
-    background: #f8f9fa !important;
+    background: #f8f9fa;
+    text-align: center;
+    padding: 80px 20px;
     width: 100vw;
     margin-left: 50%;
     transform: translateX(-50%);
+    max-width: none;
 }
 
 /* Waiver Form Specific Styles */
