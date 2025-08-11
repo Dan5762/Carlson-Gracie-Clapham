@@ -173,37 +173,90 @@
                         <!-- Personal Information -->
                         <div class="form-group full-width">
                             <label for="fullName">Your name: *</label>
-                            <input type="text" id="fullName" name="fullName" required>
+                            <input type="text" id="fullName" name="entry.1933748943" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="dateOfBirth">Your date of birth: *</label>
-                            <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+                            <div class="date-input-group">
+                                <select id="dobDay" name="entry.109173362_day" required>
+                                    <option value="">Day</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                </select>
+                                <select id="dobMonth" name="entry.109173362_month" required>
+                                    <option value="">Month</option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                                <select id="dobYear" name="entry.109173362_year" required>
+                                    <option value="">Year</option>
+                                </select>
+                            </div>
                         </div>
                         
                         <div class="form-group">
                             <label for="email">Your email address: *</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="entry.1096846332" required>
                         </div>
                         
                         <div class="form-group full-width">
                             <label for="address">Your address: *</label>
-                            <input type="text" id="address" name="address" required>
+                            <input type="text" id="address" name="entry.986270233" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="phone">Your phone number: *</label>
-                            <input type="tel" id="phone" name="phone" required>
+                            <input type="tel" id="phone" name="entry.562754019" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="nextOfKinName">Next of kin - First and last name: *</label>
-                            <input type="text" id="nextOfKinName" name="nextOfKinName" required>
+                            <input type="text" id="nextOfKinName" name="entry.986695701" required>
                         </div>
                         
                         <div class="form-group full-width">
                             <label for="nextOfKinPhone">Next of kin - phone number: *</label>
-                            <input type="tel" id="nextOfKinPhone" name="nextOfKinPhone" required>
+                            <input type="tel" id="nextOfKinPhone" name="entry.2036906341" required>
                         </div>
                     </div>
                     
@@ -211,7 +264,7 @@
                     <div class="waiver-agreements">
                         <h3 class="agreement-title">Your agreement</h3>
                         <div class="agreement-item">
-                            <input type="checkbox" id="waiverAgree" name="waiverAgree" required>
+                            <input type="checkbox" id="waiverAgree" name="entry.532058923" required>
                             <label for="waiverAgree">I confirm that I have read, understood the "Agreement to participate in any class at Carlson Gracie Clapham Club" and I freely sign to adhere to its terms and conditions. *</label>
                         </div>
                     </div>
@@ -221,13 +274,17 @@
                         <h3 class="signature-title">Signature</h3>
                         <div class="form-group full-width">
                             <label for="digitalSignature">Digital Signature *</label>
-                            <input type="text" id="digitalSignature" name="digitalSignature" placeholder="Type your full name as your digital signature" required>
+                            <input type="text" id="digitalSignature" name="entry.2104098328" placeholder="Type your full name as your digital signature" required>
                             <small>By typing your name above, you are providing your legal digital signature.</small>
                         </div>
                         
                         <div class="form-group full-width">
                             <label for="signatureDate">Date *</label>
-                            <input type="date" id="signatureDate" name="signatureDate" readonly required>
+                            <input type="date" id="signatureDate" readonly required>
+                            <!-- Hidden inputs for Google Form date entries -->
+                            <input type="hidden" id="signatureDateDay" name="entry.2028875152_day">
+                            <input type="hidden" id="signatureDateMonth" name="entry.2028875152_month">
+                            <input type="hidden" id="signatureDateYear" name="entry.2028875152_year">
                         </div>
                     </div>
                     
