@@ -62,12 +62,7 @@ async function handleWaiverSubmit(event) {
     // Create URL-encoded form data for Google Forms
     const urlEncodedData = new URLSearchParams();
     for (const pair of formData) {
-        // Convert checkbox "on" value to proper checkbox text
-        if (pair[0] === 'entry.532058923' && pair[1] === 'on') {
-            urlEncodedData.append(pair[0], 'I confirm that I have read, understood the "Agreement to participate in any class at Carlson Gracie Clapham Club" and I freely sign to adhere to its terms and conditions.');
-        } else {
-            urlEncodedData.append(pair[0], pair[1]);
-        }
+        urlEncodedData.append(pair[0], pair[1]);
     }
     
     // Debug: Log the form data being sent
