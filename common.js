@@ -25,7 +25,48 @@ function initMobileMenu() {
     }
 }
 
+// Shared footer functionality
+function createSharedFooter() {
+    const footerHTML = `
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Carlson Gracie Clapham</h3>
+                <p>Brazilian Jiu-Jitsu • Self-Defense • Fitness</p>
+                <p>68 St Rule St, Nine Elms<br>London SW8 3ED</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#timetable">Timetable</a></li>
+                    <li><a href="index.html#membership">Membership</a></li>
+                    <li><a href="index.html#location">Location</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/carlsongracieclapham" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+                    <a href="https://www.instagram.com/carlsongracieclapham" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Carlson Gracie Clapham. All rights reserved.</p>
+        </div>
+    `;
+    
+    const footer = document.querySelector('.site-footer');
+    if (footer) {
+        footer.innerHTML = footerHTML;
+    }
+}
+
 // Initialize common functionality when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     initMobileMenu();
+    createSharedFooter();
 });

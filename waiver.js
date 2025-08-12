@@ -53,7 +53,7 @@ async function handleWaiverSubmit(event) {
     submitBtn.disabled = true;
     btnText.textContent = 'Submitting...';
     
-    // Get form data
+    // Get form datax
     const formData = new FormData(document.getElementById('waiverSignForm'));
     // Google Form ID for waiver form
     const GOOGLE_FORM_ID = '1FAIpQLSdQ9vNA_rabl-guWsz5RjW2obZXxze4bKVHUbnEEeZeHqzfRA';
