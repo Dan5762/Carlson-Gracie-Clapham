@@ -32,7 +32,7 @@ function createSharedFooter() {
             <div class="footer-section">
                 <h3>Carlson Gracie Clapham</h3>
                 <p>Brazilian Jiu-Jitsu • Self-Defense • Fitness</p>
-                <p>68 St Rule St, Nine Elms<br>London SW8 3ED</p>
+                <p><a href="https://maps.app.goo.gl/vy4i7ijTR22P4Lw86" target="_blank" style="color: #b4b4b4; text-decoration: none;">68 St Rule St, Nine Elms<br>London SW8 3ED</a></p>
             </div>
             
             <div class="footer-section">
