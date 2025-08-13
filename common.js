@@ -33,6 +33,7 @@ function createSharedFooter() {
                 <h3>Carlson Gracie Clapham</h3>
                 <p>Brazilian Jiu-Jitsu • Self-Defense • Fitness</p>
                 <p><a href="https://maps.app.goo.gl/vy4i7ijTR22P4Lw86" target="_blank" style="color: #b4b4b4; text-decoration: none;">68 St Rule St, Nine Elms<br>London SW8 3ED</a></p>
+                <p>Part of <a href="https://www.carlsongracieteam.org.uk/" target="_blank" style="color: #e94629; text-decoration: none;">Carlson Gracie Team UK</a></p>
             </div>
             
             <div class="footer-section">
