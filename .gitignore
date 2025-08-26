@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Development files
+optimize-images.js
+optimize-images.py
+minify.js
+extract-critical-css.js
+critical.css
+critical-minimal.css
+
+# Original unoptimized images (keep optimized versions)
+images/squad.jpg
+images/supportive-environment.jpg
+images/jiu-jitsu-sparring.jpg
+images/icon.png
+images/icon-white-background.png
+
+# Development JavaScript (keep minified versions)
+script.js
+common.js
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
