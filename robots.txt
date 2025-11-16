@@ -14,4 +14,4 @@ Disallow: /bookings-checkout/
 Disallow: /bolt-performance
 
 # Sitemap location
-Sitemap: https://bjjsouthlondon.com/sitemap.xml
+Sitemap: https://www.bjjsouthlondon.com/sitemap.xml
