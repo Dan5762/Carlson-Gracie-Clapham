@@ -118,3 +118,41 @@ Options -Indexes
     Order allow,deny
     Deny from all
 </FilesMatch>
+
+# ===================================================
+# 301 Redirects for Old Framer Site URLs
+# ===================================================
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Redirect old API endpoints to home
+    RewriteRule ^_api/.* / [R=301,L]
+    RewriteRule ^bolt-performance.* / [R=301,L]
+
+    # Redirect old fullscreen page components to home
+    RewriteRule ^fullscreen-page/.* / [R=301,L]
+
+    # Redirect old waiver page to JotForm waiver
+    RewriteRule ^waiver$ https://form.jotform.com/252235807153050 [R=301,L]
+
+    # Redirect old service pages for classes to timetable section
+    RewriteRule ^service-page/monday-evening-class$ /#timetable [R=301,L,NE]
+    RewriteRule ^service-page/tuesday-evening-class$ /#timetable [R=301,L,NE]
+    RewriteRule ^service-page/wednesday-evening-class$ /#timetable [R=301,L,NE]
+    RewriteRule ^service-page/thursday-evening-class$ /#timetable [R=301,L,NE]
+    RewriteRule ^service-page/friday-evening-class$ /#timetable [R=301,L,NE]
+    RewriteRule ^service-page/saturday-morning-class$ /#timetable [R=301,L,NE]
+    RewriteRule ^service-page/.* /#timetable [R=301,L,NE]
+
+    # Redirect old booking checkout pages to signup
+    RewriteRule ^bookings-checkout/.* /signup.html [R=301,L]
+
+    # Ensure www. is removed (optional - uncomment if you want to enforce non-www)
+    # RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    # RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+    # Custom 404 error page
+    ErrorDocument 404 /404.html
+</IfModule>

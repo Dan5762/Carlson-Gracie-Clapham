@@ -1,13 +1,17 @@
 # robots.txt for bjjsouthlondon.com
-# Permissive configuration - allows all bots to crawl all content
 
 # Allow all web crawlers
 User-agent: *
 Allow: /
 Crawl-delay: 0
 
+# Disallow old Framer site URLs that no longer exist
+# These have been redirected but we want to discourage further crawling
+Disallow: /_api/
+Disallow: /fullscreen-page/
+Disallow: /service-page/
+Disallow: /bookings-checkout/
+Disallow: /bolt-performance
+
 # Sitemap location
 Sitemap: https://bjjsouthlondon.com/sitemap.xml
-
-# No restrictions - all content is public
-# This file explicitly permits all crawlers to access all areas of the site

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Page Not Found | BJJ Clapham - Carlson Gracie</title>
+    <meta name="description" content="The page you're looking for cannot be found. Redirecting you to our BJJ Clapham homepage.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://www.bjjsouthlondon.com">
+
+    <!-- Favicon -->
+    <link href="images/optimized/icon.webp" rel="icon" type="image/webp">
+    <link href="images/optimized/icon.png" rel="icon" type="image/png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            font-family: "Outfit", sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #000;
+            background: #fff;
+            height: 100%;
+        }
+
+        .error-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .error-code {
+            font-size: 120px;
+            font-weight: 800;
+            color: #ae3036;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .error-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .error-message {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .redirect-message {
+            font-size: 16px;
+            color: #999;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            font-weight: 600;
+            font-size: 16px;
+            padding: 14px 32px;
+            border-radius: 100px;
+            text-decoration: none;
+            display: inline-block;
+            background-color: #ae3036;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #8e262c;
+            transform: translateY(-2px);
+        }
+
+        .logo {
+            margin-bottom: 30px;
+        }
+
+        .logo-text {
+            font-family: "Outfit", sans-serif;
+            font-weight: 800;
+            font-size: 36px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 80px;
+            }
+
+            .error-title {
+                font-size: 24px;
+            }
+
+            .error-message {
+                font-size: 16px;
+            }
+
+            .logo-text {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="logo">
+            <a href="/" class="logo-text">BJJ Clapham</a>
+        </div>
+
+        <div class="error-code">404</div>
+        <h1 class="error-title">Page Not Found</h1>
+        <p class="error-message">
+            The page you're looking for doesn't exist or has been moved.
+            We've recently rebuilt our website with a new structure.
+        </p>
+        <p class="redirect-message" id="redirectMessage">
+            Redirecting you to the homepage in <span id="countdown">5</span> seconds...
+        </p>
+
+        <a href="/" class="btn">Go to Homepage</a>
+    </div>
+
+    <script>
+        (function() {
+            'use strict';
+
+            // Get the current path
+            const path = window.location.pathname;
+            const hash = window.location.hash;
+            let redirectUrl = '/';
+
+            // Intelligent redirect logic based on old Framer URLs
+            if (path.includes('/service-page/') || path.includes('/bookings-checkout/')) {
+                // Class-related pages go to timetable
+                if (path.includes('monday') || path.includes('tuesday') ||
+                    path.includes('wednesday') || path.includes('thursday') ||
+                    path.includes('friday') || path.includes('saturday')) {
+                    redirectUrl = '/#timetable';
+                }
+                // Booking checkouts go to signup
+                else if (path.includes('/bookings-checkout/')) {
+                    redirectUrl = '/signup.html';
+                }
+            }
+            // Waiver page redirects to JotForm
+            else if (path.includes('/waiver')) {
+                redirectUrl = 'https://form.jotform.com/252235807153050';
+            }
+            // API endpoints and other Framer artifacts go to homepage
+            else if (path.includes('/_api/') || path.includes('/fullscreen-page/') ||
+                     path.includes('/bolt-performance')) {
+                redirectUrl = '/';
+            }
+
+            // Countdown timer
+            let countdown = 5;
+            const countdownElement = document.getElementById('countdown');
+            const redirectMessageElement = document.getElementById('redirectMessage');
+
+            const timer = setInterval(function() {
+                countdown--;
+                if (countdownElement) {
+                    countdownElement.textContent = countdown;
+                }
+
+                if (countdown <= 0) {
+                    clearInterval(timer);
+                    window.location.href = redirectUrl;
+                }
+            }, 1000);
+
+            // Update message if redirecting to waiver
+            if (redirectUrl.includes('jotform.com')) {
+                if (redirectMessageElement) {
+                    redirectMessageElement.innerHTML =
+                        'Redirecting you to our waiver form in <span id="countdown">' + countdown + '</span> seconds...';
+                }
+            }
+            // Update message if redirecting to specific section
+            else if (redirectUrl.includes('#')) {
+                const section = redirectUrl.split('#')[1];
+                if (redirectMessageElement) {
+                    redirectMessageElement.innerHTML =
+                        'Redirecting you to the ' + section + ' section in <span id="countdown">' + countdown + '</span> seconds...';
+                }
+            }
+        })();
+    </script>
+</body>
+</html>
