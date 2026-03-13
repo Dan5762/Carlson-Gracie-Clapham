@@ -226,6 +226,39 @@
 			</div>
 		</main>
 
+		<!-- JotForm Submission Tracking for Google Ads Conversions -->
+		<script>
+			window.addEventListener("message", function (event) {
+				if (
+					event.origin === "https://form.jotform.com" ||
+					event.origin === "https://submit.jotform.com"
+				) {
+					var data;
+					try {
+						data =
+							typeof event.data === "string"
+								? JSON.parse(event.data)
+								: event.data;
+					} catch (e) {
+						return;
+					}
+
+					// JotForm sends a submission-completed message when the form is done
+					if (data && data.action === "submission-completed") {
+						// Fire GA4 conversion event (mapped to Google Ads SIGNUP conversion)
+						if (typeof gtag === "function") {
+							gtag("event", "conversion_event_signup", {
+								event_category: "form",
+								event_label: "jotform_signup",
+								value: 50,
+								currency: "GBP",
+							});
+						}
+					}
+				}
+			});
+		</script>
+
 		<!-- Footer -->
 		<footer class="site-footer">
 			<!-- Footer content will be populated by common.js -->
