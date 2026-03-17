@@ -72,6 +72,14 @@
 
 		gtag("config", "G-1CFG5VSWMN");
 	</script>
+	<!-- Microsoft Clarity -->
+	<script type="text/javascript">
+		(function(c,l,a,r,i,t,y){
+			c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+			t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+			y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+		})(window, document, "clarity", "script", "vxakw3l9wj");
+	</script>
 	<body>
 		<!-- Navigation -->
 		<header class="navbar">
@@ -226,7 +234,7 @@
 			</div>
 		</main>
 
-		<!-- JotForm Submission Tracking for Google Ads Conversions -->
+		<!-- JotForm Submission Tracking -->
 		<script>
 			window.addEventListener("message", function (event) {
 				if (
@@ -243,13 +251,11 @@
 						return;
 					}
 
-					// JotForm sends a submission-completed message when the form is done
 					if (data && data.action === "submission-completed") {
-						// Fire GA4 conversion event (mapped to Google Ads SIGNUP conversion)
 						if (typeof gtag === "function") {
-							gtag("event", "conversion_event_signup", {
+							gtag("event", "jotform_submission", {
 								event_category: "form",
-								event_label: "jotform_signup",
+								event_label: "signup_form_submitted",
 								value: 50,
 								currency: "GBP",
 							});
