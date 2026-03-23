@@ -796,6 +796,7 @@ ol {
 	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	border: 2px solid #e9ecef;
 	position: relative;
+	cursor: pointer;
 }
 
 .day-schedule:hover {
@@ -875,6 +876,43 @@ ol {
 	font-size: 14px;
 	color: #6c757d;
 	font-weight: 500;
+}
+
+.day-header-right {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.expand-icon {
+	color: #6c757d;
+	transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	flex-shrink: 0;
+}
+
+.day-schedule.active .expand-icon {
+	transform: rotate(180deg);
+	color: rgb(174, 48, 54);
+}
+
+.class-description {
+	height: 0;
+	overflow: hidden;
+	transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.class-description-content {
+	padding: 0 25px 20px;
+	border-top: 1px solid #e9ecef;
+	padding-top: 16px;
+	margin: 0 12px;
+}
+
+.class-description-content p {
+	margin: 0;
+	font-size: 14px;
+	line-height: 1.7;
+	color: #4a5568;
 }
 
 .section-intro {
