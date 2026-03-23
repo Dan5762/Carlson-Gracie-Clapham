@@ -1768,6 +1768,12 @@ ol {
 		grid-template-columns: 1fr;
 	}
 
+	.class-badge {
+		font-size: 11px;
+		padding: 5px 10px;
+		white-space: nowrap;
+	}
+
 	.membership-plan.featured {
 		transform: none;
 	}
@@ -1857,7 +1863,7 @@ body.signup-page {
 .signup-container {
 	max-width: 900px;
 	margin: 0 auto;
-	padding: 40px 20px;
+	padding: 100px 20px 40px;
 }
 
 .signup-header {
@@ -1866,15 +1872,16 @@ body.signup-page {
 }
 
 .signup-title {
+	font-family: "Overpass", sans-serif;
 	font-weight: 800;
 	font-size: 48px;
 	color: #000;
 	margin-bottom: 16px;
 }
 
-.signup-description {
+.signup-subtitle {
 	font-size: 18px;
-	color: #333;
+	color: #4a5568;
 	line-height: 1.6;
 	max-width: 600px;
 	margin: 0 auto;
@@ -1885,6 +1892,32 @@ body.signup-page {
 	border-radius: 12px;
 	padding: 20px;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	position: relative;
+	min-height: 200px;
+}
+
+.form-loading {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 60px 20px;
+	color: #6c757d;
+	font-size: 14px;
+}
+
+.form-spinner {
+	width: 32px;
+	height: 32px;
+	border: 3px solid #e9ecef;
+	border-top-color: rgb(174, 48, 54);
+	border-radius: 50%;
+	animation: spin 0.8s linear infinite;
+	margin-bottom: 16px;
+}
+
+@keyframes spin {
+	to { transform: rotate(360deg); }
 }
 
 @media (max-width: 768px) {
@@ -1892,7 +1925,7 @@ body.signup-page {
 		font-size: 32px;
 	}
 
-	.signup-description {
+	.signup-subtitle {
 		font-size: 16px;
 	}
 

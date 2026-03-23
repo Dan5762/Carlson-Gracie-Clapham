@@ -58,28 +58,29 @@
 
 		<!-- Stylesheet -->
 		<link rel="stylesheet" href="styles.css" />
-	</head>
-	<script
-		async
-		src="https://www.googletagmanager.com/gtag/js?id=G-1CFG5VSWMN"
-	></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() {
-			dataLayer.push(arguments);
-		}
-		gtag("js", new Date());
+		<!-- Google Analytics -->
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-1CFG5VSWMN"
+		></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
 
-		gtag("config", "G-1CFG5VSWMN");
-	</script>
-	<!-- Microsoft Clarity -->
-	<script type="text/javascript">
-		(function(c,l,a,r,i,t,y){
-			c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-			t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-			y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-		})(window, document, "clarity", "script", "vxakw3l9wj");
-	</script>
+			gtag("config", "G-1CFG5VSWMN");
+		</script>
+		<!-- Microsoft Clarity -->
+		<script type="text/javascript">
+			(function(c,l,a,r,i,t,y){
+				c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+				t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+				y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+			})(window, document, "clarity", "script", "vxakw3l9wj");
+		</script>
+	</head>
 	<body>
 		<!-- Navigation -->
 		<header class="navbar">
@@ -224,8 +225,16 @@
 
 		<main>
 			<div class="signup-container">
+				<div class="signup-header">
+					<h1 class="signup-title">Start Your Free Trial</h1>
+					<p class="signup-subtitle">No commitment, no experience needed. Fill in your details below and we'll get you on the mats.</p>
+				</div>
 				<!-- Embedded JotForm -->
 				<div class="form-container">
+					<div class="form-loading" id="formLoading">
+						<div class="form-spinner"></div>
+						<p>Loading form...</p>
+					</div>
 					<script
 						type="text/javascript"
 						src="https://form.jotform.com/jsform/252235775535058"
@@ -238,6 +247,11 @@
 		<footer class="site-footer">
 			<!-- Footer content will be populated by common.js -->
 		</footer>
+
+		<!-- Hide loading spinner once JotForm renders -->
+		<script>
+			var formCheck=setInterval(function(){var f=document.querySelector(".form-container iframe, .form-container form");if(f){var l=document.getElementById("formLoading");if(l)l.style.display="none";clearInterval(formCheck)}},200);setTimeout(function(){clearInterval(formCheck);var l=document.getElementById("formLoading");if(l)l.style.display="none"},10000);
+		</script>
 
 		<!-- JavaScript -->
 		<script src="common.min.js" defer></script>
