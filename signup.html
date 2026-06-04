@@ -73,10 +73,10 @@
 			gtag("config", "G-1CFG5VSWMN");
 			gtag("config", "AW-17856524756");
 
-			// Google Ads conversion - Submit lead form
-			gtag("event", "conversion", {
-				send_to: "AW-17856524756/dE-PCKrtvKgcENTj08JC",
-			});
+			// NOTE: the Google Ads conversion event is NOT fired here.
+			// JotForm redirects to signup-confirmed.html after a completed
+			// submission, and the conversion fires on that page instead so
+			// it only counts genuine signups (not page views).
 		</script>
 		<!-- Microsoft Clarity -->
 		<script type="text/javascript">
