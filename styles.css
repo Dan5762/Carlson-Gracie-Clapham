@@ -167,7 +167,11 @@
 
 /* Mobile Navigation */
 @media (max-width: 1079px) {
-	.nav-links {
+	/* ul.nav-links, not .nav-links: the NAVIGATION section further down this
+	   file re-declares .nav-links { gap: 40px } and, being later with equal
+	   specificity, would win. 40px between 9 stacked items made the panel
+	   877px tall and pushed Waiver / Free Trial off a phone screen. */
+	ul.nav-links {
 		position: fixed;
 		left: -100%;
 		top: 70px;
@@ -179,6 +183,10 @@
 		box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
 		z-index: 999;
 		padding: 20px 0;
+		gap: 0;
+		max-height: calc(100vh - 70px);
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
 	}
 
 	.nav-links.active {
@@ -186,7 +194,17 @@
 	}
 
 	.nav-links li {
-		margin: 15px 0;
+		margin: 0;
+	}
+
+	/* Padding on the link (not the li) so the whole row is a 44px+ tap target */
+	.nav-links a:not(.btn) {
+		display: block;
+		padding: 12px 0;
+	}
+
+	.nav-links .nav-cta {
+		margin-top: 12px;
 	}
 
 	.mobile-only {
