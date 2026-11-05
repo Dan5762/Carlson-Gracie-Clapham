@@ -227,7 +227,7 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" as="style">
     
     <!-- Critical CSS for above-the-fold content -->
-    <style>*{box-sizing:border-box;margin:0;padding:0}html,body{font-family:"Outfit",sans-serif;font-size:16px;line-height:1.6;color:#000;background:#fff}.navbar{position:fixed;top:0;left:0;right:0;width:100%;background:#fff;z-index:1000;border-bottom:1px solid rgba(0,0,0,0.1)}.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;width:100%;margin:0 auto;padding:15px 20px}.nav-brand .brand-link{font-family:"Outfit",sans-serif;font-weight:800;font-size:28px;color:#000;text-decoration:none}.nav-links{list-style:none;display:flex;gap:40px;margin:0;padding:0}.nav-links a{font-weight:500;font-size:16px;color:#000;text-decoration:none}.btn{font-weight:600;font-size:14px;padding:12px 24px;border-radius:100px;text-decoration:none;display:inline-block}.btn-primary{background-color:#ae3036;color:#fff}.hero{position:relative;height:100vh;min-height:500px;display:flex;align-items:center;justify-content:center;overflow:hidden}.hero-background{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}.hero-image{width:100%;height:100%;object-fit:cover}.hero-title-box{position:absolute;z-index:2;background-color:rgba(255,255,255,0.8);left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;padding:20px 20px}.hero-title{font-weight:800;font-size:48px;color:#000;margin:0}.hero-tagline{font-weight:500;font-size:18px;color:#000;margin:12px 0 0}.hero-trust{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:10px}.hero-trust-stars{color:#fbbc05;font-size:16px;letter-spacing:1px}.hero-trust-text{font-weight:600;font-size:14px;color:#000;text-decoration:underline}@media(max-width:1079px){ul.nav-links{position:fixed;left:-100%;top:70px;flex-direction:column;gap:0;background:#fff;width:100%;text-align:center;transition:0.3s;padding:20px 0;max-height:calc(100vh - 70px);overflow-y:auto}.nav-links.active{left:0}.nav-links li{margin:0}.nav-links a:not(.btn){display:block;padding:12px 0}.hero-title{font-size:32px}.hero-tagline{font-size:15px}}</style>
+    <style>*{box-sizing:border-box;margin:0;padding:0}html,body{font-family:"Outfit",sans-serif;font-size:16px;line-height:1.6;color:#000;background:#fff}.navbar{position:fixed;top:0;left:0;right:0;width:100%;background:#fff;z-index:1000;border-bottom:1px solid rgba(0,0,0,0.1)}.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;width:100%;margin:0 auto;padding:15px 20px}.nav-brand .brand-link{font-family:"Outfit",sans-serif;font-weight:800;font-size:28px;color:#000;text-decoration:none}.nav-links{list-style:none;display:flex;gap:40px;margin:0;padding:0}.nav-links a{font-weight:500;font-size:16px;color:#000;text-decoration:none}.btn{font-weight:600;font-size:14px;padding:12px 24px;border-radius:100px;text-decoration:none;display:inline-block}.btn-primary{background-color:#ae3036;color:#fff}.hero{position:relative;height:100vh;min-height:500px;display:flex;align-items:center;justify-content:center;overflow:hidden}.hero-background{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}.hero-image{width:100%;height:100%;object-fit:cover}.hero-title-box{position:absolute;z-index:2;background-color:rgba(255,255,255,0.8);left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;padding:20px 20px}.hero-title{font-weight:800;font-size:48px;color:#000;margin:0}.hero-tagline{font-weight:500;font-size:18px;color:#000;margin:12px 0 0}.hero-trust{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:10px}.hero-trust-stars{color:#fbbc05;font-size:16px;letter-spacing:1px}.hero-trust-text{font-weight:600;font-size:14px;color:#000;text-decoration:underline}.hero-cta-wrapper{margin-top:24px}.hero-reassure{font-weight:500;font-size:13px;color:#333;margin:10px 0 0}@media(max-width:1079px){ul.nav-links{position:fixed;left:-100%;top:70px;flex-direction:column;gap:0;background:#fff;width:100%;text-align:center;transition:0.3s;padding:20px 0;max-height:calc(100vh - 70px);overflow-y:auto}.nav-links.active{left:0}.nav-links li{margin:0}.nav-links a:not(.btn){display:block;padding:12px 0}.hero-title{font-size:32px}.hero-tagline{font-size:15px}.hero-reassure{font-size:12px}.hero-cta-wrapper{margin-top:18px}}</style>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -280,14 +280,14 @@
                     <!-- Mobile CTA (hidden on desktop) -->
                     <li class="mobile-only">
                         <div class="nav-cta">
-                            <a href="signup.html" class="btn btn-primary">Free Trial</a>
+                            <a href="signup.html" class="btn btn-primary">Book a free trial</a>
                         </div>
                     </li>
                 </ul>
 
                 <!-- Desktop Sign Up Button -->
                 <div class="nav-cta desktop-only">
-                    <a href="signup.html" class="btn btn-primary">Free Trial</a>
+                    <a href="signup.html" class="btn btn-primary">Book a free trial</a>
                 </div>
 
                 <!-- Social Icons -->
@@ -343,7 +343,8 @@
                 <a href="#reviews" class="hero-trust-text">5.0 rated on Google (91 reviews)</a>
             </div>
             <div class="hero-cta-wrapper">
-                <a href="signup.html" class="btn btn-primary">Free Trial</a>
+                <a href="signup.html" class="btn btn-primary">Book a free trial class</a>
+                <p class="hero-reassure">No card needed, no commitment, first class is on us.</p>
             </div>
         </div>
     </section>
@@ -667,7 +668,7 @@
                         <h3 class="section-subtitle text-center">Experience the Difference for Yourself</h3>
                         <p class="section-text text-center">Join students from across London who have made Carlson Gracie Clapham their BJJ home. Your first class is completely free—no experience necessary.</p>
                         <div class="button-group">
-                            <a href="signup.html" class="btn btn-primary btn-large">Book Your Free Trial</a>
+                            <a href="signup.html" class="btn btn-primary btn-large">Book a free trial class</a>
                             <a href="#location" class="btn btn-secondary btn-large">View Location & Directions</a>
                         </div>
                     </div>
@@ -981,7 +982,7 @@
                 <h2 id="signup-heading" class="section-title">Start Your BJJ Journey Today</h2>
                 <p class="section-text">Ready to begin your Brazilian Jiu-Jitsu journey with Carlson Gracie Clapham? Join our welcoming community and discover the art of BJJ in South London.</p>
 
-                <a href="signup.html" class="btn btn-primary btn-large">Free Trial</a>
+                <a href="signup.html" class="btn btn-primary btn-large">Book a free trial class</a>
             </div>
         </section>
     </main>

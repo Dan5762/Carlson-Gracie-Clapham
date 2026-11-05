@@ -345,7 +345,16 @@
 .hero-cta-wrapper {
 	position: relative;
 	z-index: 2;
-	margin-top: 30px;
+	margin-top: 24px;
+}
+
+.hero-reassure {
+	font-family: "Outfit", sans-serif;
+	font-weight: 500;
+	font-size: 13px;
+	color: rgb(51, 51, 51);
+	margin: 10px 0 0;
+	text-align: center;
 }
 
 .hero-title {
@@ -407,6 +416,14 @@
 
 	.hero-tagline {
 		font-size: 15px;
+	}
+
+	.hero-reassure {
+		font-size: 12px;
+	}
+
+	.hero-cta-wrapper {
+		margin-top: 18px;
 	}
 
 	.hero-content {
@@ -1945,6 +1962,57 @@ body.signup-page {
 	margin: 0 auto;
 }
 
+/* "What happens next" steps above the signup form */
+.signup-steps {
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+	max-width: 900px;
+	margin: 32px auto 0;
+	padding: 0;
+}
+
+.signup-step {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	text-align: left;
+}
+
+.signup-step-num {
+	flex: 0 0 auto;
+	width: 28px;
+	height: 28px;
+	border-radius: 100px;
+	background-color: rgb(174, 48, 54);
+	color: #fff;
+	font-family: "Outfit", sans-serif;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 28px;
+	text-align: center;
+}
+
+.signup-step-body {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.signup-step-title {
+	font-family: "Outfit", sans-serif;
+	font-weight: 600;
+	font-size: 16px;
+	color: #000;
+}
+
+.signup-step-text {
+	font-size: 14px;
+	line-height: 1.5;
+	color: #4a5568;
+}
+
 .form-container {
 	background: #fff;
 	border-radius: 12px;
@@ -1985,6 +2053,12 @@ body.signup-page {
 
 	.signup-subtitle {
 		font-size: 16px;
+	}
+
+	.signup-steps {
+		grid-template-columns: 1fr;
+		gap: 14px;
+		margin-top: 24px;
 	}
 
 	.form-container {
