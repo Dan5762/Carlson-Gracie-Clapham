@@ -54,7 +54,7 @@
 }
 
 .nav-brand .brand-link {
-	font-family: \"Outfit\", sans-serif;
+	font-family: "Outfit", sans-serif;
 	font-weight: 800;
 	font-size: 28px;
 	color: rgb(0, 0, 0);
@@ -76,7 +76,7 @@
 }
 
 .nav-links a {
-	font-family: \"Outfit\", sans-serif;
+	font-family: "Outfit", sans-serif;
 	font-weight: 500;
 	font-size: 16px;
 	color: rgb(0, 0, 0);
@@ -91,7 +91,7 @@
 }
 
 .nav-cta .btn {
-	font-family: \"Outfit\", sans-serif;
+	font-family: "Outfit", sans-serif;
 	font-weight: 600;
 	font-size: 14px;
 	padding: 10px 18px;
@@ -339,7 +339,7 @@
 	top: 50%;
 	transform: translateY(-50%);
 	text-align: center;
-	padding: 20px 0;
+	padding: 20px 20px;
 }
 
 .hero-cta-wrapper {
@@ -349,13 +349,49 @@
 }
 
 .hero-title {
-	font-family: \"Outfit\", sans-serif;
+	font-family: "Outfit", sans-serif;
 	font-weight: 800;
 	font-size: 48px;
 	color: rgb(0, 0, 0);
 	margin: 0;
 	line-height: 1.2;
 	text-align: center;
+}
+
+.hero-tagline {
+	font-family: "Outfit", sans-serif;
+	font-weight: 500;
+	font-size: 18px;
+	color: rgb(0, 0, 0);
+	margin: 12px 0 0;
+	text-align: center;
+}
+
+.hero-trust {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-top: 10px;
+}
+
+.hero-trust-stars {
+	color: #fbbc05;
+	font-size: 16px;
+	letter-spacing: 1px;
+}
+
+.hero-trust-text {
+	font-family: "Outfit", sans-serif;
+	font-weight: 600;
+	font-size: 14px;
+	color: rgb(0, 0, 0);
+	text-decoration: underline;
+}
+
+.hero-trust-text:hover {
+	color: rgb(174, 48, 54);
 }
 
 /* Mobile Hero */
@@ -367,6 +403,10 @@
 
 	.hero-title {
 		font-size: 32px;
+	}
+
+	.hero-tagline {
+		font-size: 15px;
 	}
 
 	.hero-content {
@@ -400,7 +440,7 @@
 
 /* Inter 400 - Regular Text */
 @font-face {
-	font-family: \"Outfit\", sans-serif;
+	font-family: "Outfit", sans-serif;
 	src: url(https://framerusercontent.com/assets/vQyevYAyHtARFwPqUzQGpnDs.woff2);
 	font-display: swap;
 	font-style: normal;
@@ -412,7 +452,7 @@
 
 /* Inter 500 - Medium Text */
 @font-face {
-	font-family: \"Outfit\", sans-serif;
+	font-family: "Outfit", sans-serif;
 	src: url(https://framerusercontent.com/assets/d3tHnaQIAeqiE5hGcRw4mmgWYU.woff2);
 	font-display: swap;
 	font-style: normal;
@@ -424,7 +464,7 @@
 
 /* Inter 600 - Semi-Bold Text */
 @font-face {
-	font-family: \"Outfit\", sans-serif;
+	font-family: "Outfit", sans-serif;
 	src: url(https://framerusercontent.com/assets/1ZFS7N918ojhhd0nQWdj3jz4w.woff2);
 	font-display: swap;
 	font-style: normal;
@@ -446,7 +486,7 @@
 
 html,
 body {
-	font-family: \"Outfit\", sans-serif;
+	font-family: "Outfit", sans-serif;
 	font-size: 16px;
 	line-height: 1.6;
 	color: #000;
@@ -461,7 +501,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: \"Outfit\", sans-serif;
+	font-family: "Outfit", sans-serif;
 	font-weight: 800;
 	line-height: 1.2;
 	margin: 0;
@@ -544,7 +584,7 @@ ol {
 }
 
 .nav-link {
-	font-family: \"Outfit\", sans-serif;
+	font-family: "Outfit", sans-serif;
 	font-size: 16px;
 	font-weight: 500;
 	color: #000;
@@ -573,7 +613,7 @@ ol {
 	align-items: center;
 	justify-content: center;
 	padding: 12px 24px;
-	font-family: \"Outfit\", sans-serif;
+	font-family: "Outfit", sans-serif;
 	font-size: 14px;
 	font-weight: 600;
 	text-decoration: none;
@@ -680,7 +720,7 @@ ol {
 }
 
 .hero-title {
-	font-family: \"Outfit\", sans-serif;
+	font-family: "Outfit", sans-serif;
 	font-size: 48px;
 	font-weight: 800;
 	color: #000;
@@ -1047,7 +1087,7 @@ ol {
 }
 
 .plan-title {
-	font-family: \"Outfit\", sans-serif;
+	font-family: "Outfit", sans-serif;
 	font-size: 24px;
 	font-weight: 600;
 	margin-bottom: 20px;
@@ -1199,7 +1239,7 @@ ol {
 	justify-content: space-between;
 	align-items: center;
 	text-align: left;
-	font-family: \"Outfit\", sans-serif;
+	font-family: "Outfit", sans-serif;
 	font-size: 18px;
 	font-weight: 600;
 	color: #1a1a1a;
@@ -1851,10 +1891,10 @@ ol {
 }
 
 .font-brand {
-	font-family: \"Outfit\", sans-serif;
+	font-family: "Outfit", sans-serif;
 }
 .font-body {
-	font-family: \"Outfit\", sans-serif;
+	font-family: "Outfit", sans-serif;
 }
 
 .font-weight-400 {
