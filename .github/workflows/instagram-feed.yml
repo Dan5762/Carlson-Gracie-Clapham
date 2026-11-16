@@ -1,0 +1,71 @@
+name: Sync Instagram feed
+
+# Pulls the latest Instagram posts into the repo once a day, so the live site
+# serves its own images and never calls Instagram at runtime.
+#
+# Required secrets:
+#   IG_ACCESS_TOKEN   long-lived Instagram token (this workflow rotates it)
+#   GH_PAT_SECRETS    PAT with "Secrets: Read and write", used to store the
+#                     rotated token back into IG_ACCESS_TOKEN
+#
+# See INSTAGRAM.md for the one-off setup.
+
+on:
+  schedule:
+    # 04:17 UTC daily. Off-the-hour to dodge the scheduler's busy periods.
+    - cron: "17 4 * * *"
+  workflow_dispatch:
+
+# Avoid two runs racing to push to main.
+concurrency:
+  group: instagram-feed
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the site
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # sharp runs only here on the runner, never in the browser. It resizes
+      # each post to a 640px square webp so the committed images stay small.
+      - name: Install sharp
+        run: npm install --no-save --no-audit --no-fund sharp@0.33.5
+
+      - name: Fetch latest posts
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_POST_LIMIT: "12"
+        run: node scripts/fetch-instagram.js
+
+      - name: Commit any changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add instagram.json images/instagram
+          if git diff --staged --quiet; then
+            echo "Feed unchanged - nothing to commit."
+          else
+            git commit -m "Update Instagram feed"
+            git push
+          fi
+
+      # Runs even if nothing changed: the token still has to be rotated, and
+      # letting it lapse is unrecoverable.
+      - name: Rotate the access token
+        if: always()
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_PAT_SECRETS }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/refresh-instagram-token.js
